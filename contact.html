@@ -1,0 +1,207 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- style.css For Custom Styling -->
+    <link rel="stylesheet" href="style.css">
+    <!-- fontawesome cdn For Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="crossorigin="anonymous" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Travelxp |Contact Us</title>
+    <link rel="icon" type="jpg" href='favicon.jpg'/>
+  </head>
+  <script>
+$(function()
+{
+    function after_form_submitted(data)
+    {
+        if(data.result == 'success')
+        {
+            $('form#reused_form').hide();
+            $('#success_message').show();
+            $('#error_message').hide();
+        }
+        else
+        {
+            $('#error_message').append('<ul></ul>');
+
+            jQuery.each(data.errors,function(key,val)
+            {
+                $('#error_message ul').append('<li>'+key+':'+val+'</li>');
+            });
+            $('#success_message').hide();
+            $('#error_message').show();
+
+            //reverse the response on the button
+            $('button[type="button"]', $form).each(function()
+            {
+                $btn = $(this);
+                label = $btn.prop('orig_label');
+                if(label)
+                {
+                    $btn.prop('type','submit' );
+                    $btn.text(label);
+                    $btn.prop('orig_label','');
+                }
+            });
+
+        }//else
+    }
+
+    $('#reused_form').submit(function(e)
+      {
+        e.preventDefault();
+
+        $form = $(this);
+        //show some response on the button
+        $('button[type="submit"]', $form).each(function()
+        {
+            $btn = $(this);
+            $btn.prop('type','button' );
+            $btn.prop('orig_label',$btn.text());
+            $btn.text('Sending ...');
+        });
+
+
+                    $.ajax({
+                type: "POST",
+                url: 'handler.php',
+                data: $form.serialize(),
+                success: after_form_submitted,
+                dataType: 'json'
+            });
+
+      });
+});
+</script>
+  <body>
+<!-- ============ Header starts here ========== -->
+    <section class="header_menu" id="header_menu">
+        <div class="container-fluid px-0 shadow">
+            <nav class="navbar fixed-top navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="favicon.jpg" width="40" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                      Travelxp
+                </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="main.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="book.html">Booking</a>
+            </li>
+        </ul>
+    </div>
+            </nav>
+        </div>
+    </section>
+<!-- ==============header menu section ends here============== -->
+<!-- ==============contact starts here============== -->
+<section class="contact py-5 my-5" id="contact">
+<div class="container ">
+<div class="section_title text-center mb-5">
+<h1 class="text-capitalize">Contact Us</h1>
+</div>
+<div class="row mb-5">
+<div class="col-md-4 col-12">
+<div class="border border-success rounded shadow text-center p-3">
+<div class="mb-4">
+<i class="fas fa-phone-alt fa-3x"></i>
+</div>
+<div>
+<h3>Let's Talk</h3>
+<p><b>Phone:</b> +91-0000000000</p>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-12">
+<div class="border border-success rounded shadow text-center p-3">
+<div class="mb-4">
+<i class="fas fa-envelope-open fa-3x"></i>
+</div>
+<div>
+<h3>Drop a Line</h3>
+<p><b>Email:</b> xyz@gmail.com</p>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-12">
+<div class="border border-success rounded shadow text-center p-3">
+<div class="mb-4">
+<i class="far fa-life-ring fa-3x"></i>
+</div>
+<div>
+<h3>24x7 Support</h3>
+<p><b>Customer:</b> 1800 101 303</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 col-10 mx-auto mb-3 my-5 py-5 border shadow">
+<h3 class="text-center">Form</h3>
+<!-- Form Started -->
+    <div class="container form-top ">
+        <div class="row ">
+            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                <div class="panel panel-danger">
+                    <div class="panel-body">
+                        <form id="reused_form">
+                            <div class="form-group ">
+                                <label><i class="fa fa-user" aria-hidden="true"></i> Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
+                                <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <button class="btn btn-raised btn-block btn-danger">Post →</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Form Ended -->
+</div>
+</div>
+</div>
+</section>
+<!-- ==============contact ends here============== -->
+<footer>
+    <div class="border-top">
+<h6 class="text-center mt-3">Copyright ©2020 All rights reserved
+</h6>
+</footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  </body>
+</html>

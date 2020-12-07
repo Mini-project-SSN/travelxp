@@ -1,0 +1,50 @@
+.header_menu{
+  padding-bottom: 50px;
+}
+.carousel-inner{
+  padding-top:10px;
+}
+.travel{
+  background-color: #e8ffff;
+  display: table;
+  height: 70vh;
+  width: 100%;
+
+}
+.travel .inner{
+  padding: 30px;
+
+}
+.travel h1{
+  padding-top: 30px;
+  font-size: 52px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.travel .inner div{
+  width: 30%;
+  margin-left: 150px;
+  margin-right: 5px;
+  float: left;
+  text-align: center;
+}
+.travel .inner div img{
+  border-radius: 40%;
+  width: 300px;
+  height: 250px;
+  vertical-align: middle;
+  padding: 10px;
+}
+.about  {
+  background-color: #e8ffff;
+  padding-top: 30px;
+}
+.about .container img{
+  padding: 30px;
+}
+
+.feature{
+  background-color: #e8ffff;
+  padding-top: 50px;
+}

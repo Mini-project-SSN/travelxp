@@ -1,0 +1,78 @@
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #240090;
+	color: white;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 4px;
+	font-family: 'Dancing Script', cursive;
+	font-size: 150%;
+	}
+
+#myBtn:hover {
+	background-color: #333;
+	font-family: 'Dancing Script', cursive;
+	font-size: 150%;
+	}
+
+body {
+		background-color: #E8FFFF;
+	}
+
+a {
+	text-decoration: none;
+	font-family: 'Pangolin', cursive;
+	font-size: 110%;
+	color: #240090;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: darkorange;
+}
+
+p {
+	font-size: 110%;
+	font-family: 'Pangolin', cursive;
+	}
+
+#centre {
+	align-content: center;
+	font-weight: bold;
+}
+
+h1 {
+	text-align: center;
+	font-size: 250%;
+	font-family: 'Modak', cursive;
+	font-weight: normal;
+	color: #240090;
+	}
+
+h2 {
+	font-size: 150%;
+	font-weight: bold;
+	font-family: 'Dancing Script', cursive;
+	}
+
+.middle {
+	width: 600px;
+	margin-left: 325px;
+	text-align: justify;
+	}
+
+hr {
+	border: 2px solid #240090;
+	}
+		
+img {
+	border: 4px solid black;
+	border-radius: 3px
+	}
